@@ -1,0 +1,211 @@
+<mxfile host="app.diagrams.net" agent="Claude" version="24.0.0">
+  <diagram name="Industrial Grinder - Control Flow" id="prac3_flow">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- TITLE -->
+        <mxCell id="title" value="Industrial Grinder — Speed Control" style="text;html=1;align=center;verticalAlign=middle;fontSize=22;fontStyle=1;fontColor=#333333" vertex="1" parent="1">
+          <mxGeometry x="340" y="20" width="500" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="The user chooses a speed manually with the keypad, or lets a sensor pick it automatically." style="text;html=1;align=center;verticalAlign=middle;fontSize=13;fontStyle=2;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="240" y="60" width="700" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- LEGEND -->
+        <mxCell id="leg_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#cccccc;dashed=0" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="260" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_title" value="Legend" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="105" width="260" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" value="Start / End" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="55" y="135" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" value="Action / Step" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="155" y="135" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" value="Question" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="55" y="175" width="90" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" value="Motor changes speed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="155" y="178" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5" value="User input" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="55" y="220" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="leg6" value="Interrupt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="155" y="220" width="130" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- MAIN FLOW -->
+        <mxCell id="start" value="Power on" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=15;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="510" y="120" width="160" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="init" value="Get everything ready&#10;&#10;Wake up the screen, the keypad,&#10;the motor driver and the sensor." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="470" y="210" width="240" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="menu" value="Show main menu on screen&#10;&#10;&quot;1 = Manual mode&#10;  2 = Automatic mode&quot;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="470" y="325" width="240" height="85" as="geometry" />
+        </mxCell>
+
+        <mxCell id="wait_mode" value="Wait for the user to press a key" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="470" y="445" width="240" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dec_mode" value="Which mode&#10;did they pick?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="490" y="530" width="200" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- MANUAL BRANCH -->
+        <mxCell id="manual_header" value="MANUAL MODE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#82b366;fontSize=14;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="100" y="685" width="280" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="manual_screen" value="Show speed menu on screen&#10;&#10;&quot;1 = Low&#10;  2 = Medium&#10;  3 = Medium-High&#10;  4 = High&quot;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="100" y="735" width="280" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="manual_wait" value="Wait for the user to pick a speed (1–4)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="100" y="860" width="280" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="manual_act" value="Run the motor at the chosen speed&#10;&#10;1 → Low       (25% power)&#10;2 → Medium    (50% power)&#10;3 → Med-High  (75% power)&#10;4 → High      (100% power)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="100" y="930" width="280" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="manual_loop" value="Keep running at that speed&#10;until the user picks another one" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="100" y="1080" width="280" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- AUTOMATIC BRANCH -->
+        <mxCell id="auto_header" value="AUTOMATIC MODE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9673a6;strokeColor=#9673a6;fontSize=14;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="800" y="685" width="280" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="auto_screen" value="Show on screen:&#10;&quot;Automatic&quot;&#10;&#10;The system decides the speed by itself" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="800" y="735" width="280" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="auto_read" value="Read the load sensor&#10;&#10;(a potentiometer simulating&#10;how hard the motor is working)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="800" y="840" width="280" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="auto_dec" value="How heavy is&#10;the load?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="850" y="950" width="180" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="auto_act" value="Adjust motor speed automatically&#10;&#10;Light load     → Low       (25%)&#10;Medium load    → Medium    (50%)&#10;Heavy load     → Med-High  (75%)&#10;Very heavy     → High      (100%)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="800" y="1090" width="280" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="auto_loop" value="Keep watching the sensor and&#10;adjusting the speed continuously" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="800" y="1240" width="280" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- INTERRUPT -->
+        <mxCell id="note_mod" value="At any time during Manual or Automatic mode,&#10;the user can press a physical button to return here." style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=2;fontColor=#888888" vertex="1" parent="1">
+          <mxGeometry x="380" y="1310" width="420" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="irq_header" value="USER PRESSES THE MENU BUTTON" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b85450;strokeColor=#b85450;fontSize=13;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="430" y="1350" width="320" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="irq_box" value="An interrupt fires.&#10;The program stops what it's doing&#10;and goes back to the main menu." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="430" y="1395" width="320" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- EDGES -->
+        <mxCell id="e_start_init" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2" edge="1" parent="1" source="start" target="init">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_init_menu" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2" edge="1" parent="1" source="init" target="menu">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_menu_wait" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2" edge="1" parent="1" source="menu" target="wait_mode">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_wait_dec" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2" edge="1" parent="1" source="wait_mode" target="dec_mode">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_dec_manual" value="Pressed 1&#10;(Manual)" style="endArrow=classic;html=1;exitX=0;exitY=0.5;entryX=0.5;entryY=0;strokeWidth=2;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff" edge="1" parent="1" source="dec_mode" target="manual_header">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="585" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_dec_auto" value="Pressed 2&#10;(Automatic)" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0.5;entryY=0;strokeWidth=2;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff" edge="1" parent="1" source="dec_mode" target="auto_header">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="940" y="585" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_mh_ms" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2" edge="1" parent="1" source="manual_header" target="manual_screen">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ms_mw" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2" edge="1" parent="1" source="manual_screen" target="manual_wait">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_mw_ma" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2" edge="1" parent="1" source="manual_wait" target="manual_act">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ma_ml" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2" edge="1" parent="1" source="manual_act" target="manual_loop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ml_loop" value="loop" style="endArrow=classic;html=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;dashed=1;fontSize=11;fontStyle=2;fontColor=#666666;labelBackgroundColor=#ffffff" edge="1" parent="1" source="manual_loop" target="manual_wait">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="60" y="1110" />
+              <mxPoint x="60" y="885" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_ah_as" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2" edge="1" parent="1" source="auto_header" target="auto_screen">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_as_ar" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2" edge="1" parent="1" source="auto_screen" target="auto_read">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ar_ad" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2" edge="1" parent="1" source="auto_read" target="auto_dec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ad_aa" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2" edge="1" parent="1" source="auto_dec" target="auto_act">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_aa_al" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2" edge="1" parent="1" source="auto_act" target="auto_loop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_al_loop" value="repeat continuously" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=1;entryY=0.5;strokeWidth=2;dashed=1;fontSize=11;fontStyle=2;fontColor=#666666;labelBackgroundColor=#ffffff" edge="1" parent="1" source="auto_loop" target="auto_read">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1130" y="1270" />
+              <mxPoint x="1130" y="885" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_manual_irq" value="button pressed" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#b85450;dashed=1;fontSize=11;fontStyle=2;fontColor=#b85450;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="manual_loop" target="irq_box">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="1435" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_auto_irq" value="button pressed" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#b85450;dashed=1;fontSize=11;fontStyle=2;fontColor=#b85450;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=1;entryY=0.5" edge="1" parent="1" source="auto_loop" target="irq_box">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="1435" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_irq_back" value="go back to main menu" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#b85450;exitX=0;exitY=0.5;entryX=0;entryY=0.5;fontSize=11;fontStyle=1;fontColor=#b85450;labelBackgroundColor=#ffffff" edge="1" parent="1" source="irq_box" target="menu">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="380" y="1435" />
+              <mxPoint x="380" y="367" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
