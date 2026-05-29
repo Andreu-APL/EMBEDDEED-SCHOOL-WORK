@@ -1,21 +1,9 @@
 // RISC-V Single-Cycle Processor — Top Level
 //
-// This module just wires everything together. There is no logic here,
+// This module just wires everything together. There is no logic here, just
+// connections and more connections, and also connections btw
+//
 // only signal declarations and submodule instances.
-//
-// Datapath overview (follows the instruction through the pipeline):
-//
-//  ┌─────────────────────────────────────────────────────────────────┐
-//  │  PC → InstrMem → decode fields → ControlUnit                   │
-//  │                              ↓           ↓ (control signals)   │
-//  │               RegFile(rs1,rs2) → ALU → DataMem → RegFile(rd)  │
-//  │                                   ↑                             │
-//  │                        ImmGen ────┘  (when alu_src=1)          │
-//  │                                                                 │
-//  │  PC+4  ──────────────────────────────────────┐                 │
-//  │  PC+imm ← Adder ← PC, imm                   ↓                 │
-//  │  BranchComp → taken ──→ Mux → pc_next → PC  │                 │
-//  └─────────────────────────────────────────────────────────────────┘
 //
 // Supported instructions: R-type, I-type ALU, LW, SW, BEQ/BNE/BLT/BGE/BLTU/BGEU, JAL, LUI
 
@@ -35,7 +23,7 @@ module RISCV (
     input logic clk, rst
 );
 
-    // ── Instruction fields ────────────────────────────────────────────
+    // Instruction fields
     logic [31:0] instr;
     logic [6:0]  op;
     logic [4:0]  rs1_addr, rs2_addr, rd_addr;
@@ -49,7 +37,7 @@ module RISCV (
     assign rs2_addr  = instr[24:20];
     assign funct7b5  = instr[30];
 
-    // ── Datapath signals ──────────────────────────────────────────────
+    // Datapath signals
     logic [31:0] pc, pc_next, pc_plus4, pc_target;
     logic [31:0] rd1, rd2;        // register file read data
     logic [31:0] imm;             // sign-extended immediate
