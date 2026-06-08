@@ -118,12 +118,6 @@ A push-button connected to `PTA1` triggers `PORTA_IRQHandler()`. The ISR clears 
 
 ---
 
-## Importing the flow diagram
-
-1. Open [https://app.diagrams.net](https://app.diagrams.net).
-2. `File → Open from → Device…` and select `flow_diagram.drawio.xml`.
-3. The diagram covers the full Part 3 control flow (init → menu → mode selection → manual/automatic loops → ISR return-to-menu).
-
 ## Diagrama de flujo
 
 ![Diagrama de flujo](Diagram.jpg)
