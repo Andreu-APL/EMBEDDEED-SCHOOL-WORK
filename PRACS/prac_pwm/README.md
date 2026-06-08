@@ -126,4 +126,4 @@ A push-button connected to `PTA1` triggers `PORTA_IRQHandler()`. The ISR clears 
 
 ## Diagrama de flujo
 
-![Diagrama de flujo](Diagram.png)
+![Diagrama de flujo](Diagram.jpg)
